@@ -1,0 +1,254 @@
+<?php
+// Include database connection
+include('db.php');
+
+// Check if 'id' parameter is set in the URL (i.e., when a recipe is selected)
+if (isset($_GET['id'])) {
+    $recipe_id = $_GET['id'];
+
+    // Prepare and execute the query to get the recipe details by ID
+    $sql = "SELECT * FROM recipe WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $recipe_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Check if the recipe is found
+    if ($result->num_rows > 0) {
+        $recipe = $result->fetch_assoc();
+    } else {
+        echo "Recipe not found.";
+        exit;
+    }
+} else {
+    echo "No recipe ID specified.";
+    exit;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo htmlspecialchars($recipe['title']); ?> - Recipe Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styling for Recipe Detail Page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .recipe-detail {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .recipe-detail h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .recipe-image {
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-top: 30px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .back-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+            width: 200px;
+            margin: 20px auto;
+        }
+
+        .back-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar section -->
+    <div class="navbar">
+        <a href="index.php" class="logo">Culinary Canvas</a>
+            </div>
+
+    <div class="recipe-detail">
+        <!-- Displaying Recipe Title -->
+        <h1><?php echo htmlspecialchars($recipe['title']); ?></h1>
+
+        <!-- Displaying Recipe Image (based on recipe_id) -->
+        <?php
+        $image_url = '';
+        switch ($recipe['title']) {
+            case 'Dosa':
+                $image_url = 'dosa.jpeg';
+                break;
+            case 'Idli':
+                $image_url = 'idli.jpeg';
+                break;
+            case 'Vada':
+                $image_url = 'vada.jpeg';
+                break;
+            case 'Omlette':
+                $image_url = 'omlette.jpeg';
+                break;
+            case 'Sandwich':
+                $image_url = 'sandwich.jpeg';
+                break;
+            case 'Pancakes':
+                $image_url = 'pancakes.jpeg';
+                break;
+          case 'Aloo Paratha': // Adding image for Aloo Paratha
+             $image_url = 'Alooparata.jpeg';
+                break;
+         case 'Avocado Toast': // Adding image for Avocado Toast
+           $image_url = 'Avacadotoast.jpeg';
+          break;
+    case 'Puri': // Adding image for Puri
+        $image_url = 'puri.jpeg';
+        break;
+    case 'Chicken Biryani': // Adding image for Chicken Biryani
+        $image_url = 'chickenbiryani.jpeg';
+        break;
+    case 'Paneer Biryani': // Adding image for Paneer Biryani
+        $image_url = 'paneerbiryani.jfif';
+        break;
+    case 'Paneer Butter Masala': // Adding image for Paneer Butter Masala
+        $image_url = 'paneerBM.jpeg';
+        break;
+    case 'Garlic Naan': // Adding image for Garlic Naan
+        $image_url = 'garlic naan.jpeg';
+        break;
+    case 'Butter Chicken': // Adding image for Butter Chicken
+        $image_url = 'butterchicken.jpeg';
+        break;
+    case 'Fried Rice': // Adding image for Fried Rice
+        $image_url = 'friedrice.jpeg';
+        break;
+    case 'Soya Pulav': // Adding image for Soya Pulav
+        $image_url = 'soyapulav.jpeg';
+        break;
+    case 'Kadai Paneer': // Adding image for Kadai Paneer
+        $image_url = 'kadaipaneer.jpeg';
+        break;
+    case 'Murgh Masala': // Adding image for Murgh Masala
+        $image_url = 'Murgh masala.jpeg';
+        break;
+    case 'Pizza': // Adding image for Pizza
+        $image_url = 'pizza.jpeg';
+        break;
+    case 'Burger': // Adding image for Burger
+        $image_url = 'burger.jpeg';
+        break;
+    case 'Pasta': // Adding image for Pasta
+        $image_url = 'pasta.jpeg';
+        break;
+    case 'Samosa': // Adding image for Samosa
+        $image_url = 'samosa.jpeg';
+        break;
+    case 'Chicken Wings': // Adding image for Chicken Wings
+        $image_url = 'chickenwings.jpeg';
+        break;
+    case 'Pav Bhaji': // Adding image for Pav Bhaji
+        $image_url = 'pavbhaji.jpeg';
+        break;
+    case 'Nuggets': // Adding image for Nuggets
+        $image_url = 'nuggets.jpeg';
+        break;
+    case 'French Fries': // Adding image for French Fries
+        $image_url = 'frenchfries.jpeg';
+        break;
+    case 'Onion Rings': // Adding image for Onion Rings
+        $image_url = 'onionrings.jpeg';
+        break;
+default: // Default case for unrecognized dishes
+        $image_url = 'default.jpeg'; // You can set a default image or leave it empty
+        break;
+}
+        ?>
+        <img src="<?php echo htmlspecialchars($image_url); ?>" alt="<?php echo htmlspecialchars($recipe['title']); ?>" class="recipe-image">
+
+        <!-- Displaying Recipe Ingredients -->
+        <h2>Ingredients</h2>
+        <p><?php echo nl2br(htmlspecialchars($recipe['ingredients'])); ?></p>
+
+        <!-- Displaying Recipe Instructions -->
+        <h2>Instructions</h2>
+        <?php 
+        // Split the instructions by newline for each step
+        $instructions = explode("\n", $recipe['instructions']);
+        $printed_instructions = []; // Array to keep track of printed steps
+
+        foreach ($instructions as $step) {
+            // Trim the instruction to remove unnecessary spaces
+            $step = trim($step);
+            // Check if the step is not empty and has not been printed already
+            if (!empty($step) && !in_array($step, $printed_instructions)) {
+                // Display the instruction as plain text (without <li> tags)
+                echo "<p>" . htmlspecialchars($step) . "</p>";
+                // Mark this step as printed
+                $printed_instructions[] = $step;
+            }
+        }
+        ?>
+
+        <!-- Back Button to go to the previous page -->
+        <button class="back-button" onclick="window.history.back();">Back to options</button>
+    </div>
+</body>
+</html>
