@@ -10,6 +10,7 @@
 
 Start your culinary journey today and explore endless flavors!
 ![image](https://github.com/user-attachments/assets/3c1f4d91-bb90-4227-833d-d85b6e4af188)
+# Recipe Page
 Here is the recipe page features various categories where you can easily find a wide selection of recipes. Browse through various options such as **Breakfast**,   **Desserts**, **Snacks**, and **Main Courses**, making it easier to discover new recipes for any meal of the day.
 ![image](https://github.com/user-attachments/assets/83b9c99d-5dcb-4fe1-927a-b2e8a991b351)
 
