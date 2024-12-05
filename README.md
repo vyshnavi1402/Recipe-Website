@@ -33,14 +33,14 @@ After logging in, you can access your **My Recipes** tab, save and manage your *
 ![image](https://github.com/user-attachments/assets/b33f490b-a138-428f-8d9e-a133dacde84f)
 Here's a more innovative and engaging description for your GitHub README:
 
-### My Recipes Page
+## My Recipes Page
 The **My Recipes** page is your personal recipe vault! After logging in, you can seamlessly add  view, and manage your own culinary creations by filling in the recipe name, ingredients, and instructions. Once added, you can easily browse through your collection of recipes anytime, making it simple to relive your best cooking moments or try out new ideas you've stored. Stay organized and inspired with all your recipes in one place!
 ![image](https://github.com/user-attachments/assets/5d85c77b-210a-4fb6-bd24-5f642159389f)
 
-### Favorites Page  
+## Favorites Page  
 The **Favorites** page is your recipe treasure chest! Save all the recipes that spark your culinary creativity, so you can easily revisit them whenever you’re in the mood to cook your top picks. Keep your go-to recipes just a click away!
 ![image](https://github.com/user-attachments/assets/a290896a-21b0-4ba5-9a62-043c3155296f)
-### About Us
+## About Us
 Welcome to the About Us page! Discover the story behind our platform and meet the passionate team dedicated to bringing you a world of recipes. Learn how we strive to inspire culinary creativity and share the joy of cooking with food lovers everywhere!
 ![image](https://github.com/user-attachments/assets/b92a707b-2d3b-430e-bfbb-bea2e30d20f5)
 ![image](https://github.com/user-attachments/assets/93200da1-b4ff-46db-a419-a6bfab2b1e26)
