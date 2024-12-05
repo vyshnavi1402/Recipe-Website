@@ -1,9 +1,9 @@
 # Welcome to Culinary Canvas: Your Culinary Adventure Starts Here
 
-Welcome to **Recipe Haven**, the ultimate destination for discovering, cooking, and sharing delicious recipes from around the world. Whether you're an experienced chef or a home cook, our collection of recipes will inspire you to try something new in the kitchen.
+ Ultimate destination for discovering, cooking, and sharing delicious recipes from around the world. Whether you're an experienced chef or a home cook, our collection of recipes will inspire you to try something new in the kitchen.
 
 ## Explore Our Features:
-- Curated Recipes: Discover new recipes for breakfast, lunch, dinner, desserts, and snacks.
+- Curated Recipes: Discover new recipes for breakfast, Main Course, desserts, and snacks.
 - Create Your Own Recipes: Share your culinary creations with the community.
 - Favorites: Save your favorite recipes for easy access.
 - Easy Search: Quickly find recipes based on ingredients, cuisine, or meal type.
