@@ -13,4 +13,11 @@ Start your culinary journey today and explore endless flavors!
 # Recipe Page
 Here is the recipe page features various categories where you can easily find a wide selection of recipes. Browse through various options such as **Breakfast**,   **Desserts**, **Snacks**, and **Main Courses**, making it easier to discover new recipes for any meal of the day.
 ![image](https://github.com/user-attachments/assets/83b9c99d-5dcb-4fe1-927a-b2e8a991b351)
+## Breakfast Page
+On the **Breakfast** page of **Culinary Canvas**, you can explore a variety of breakfast recipes. Each recipe includes detailed instructions and ingredients. You can also add your favorite recipes to your **Favorites** list for easy access later!
+![image](https://github.com/user-attachments/assets/d92988e6-cdb1-42de-8c70-c97bf93daac5)
+![image](https://github.com/user-attachments/assets/970acbea-a636-40e7-83db-679477746855)
+
+
+
 
