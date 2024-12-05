@@ -16,7 +16,7 @@ Here is the recipe page features various categories where you can easily find a 
 ## Breakfast Page
 On the **Breakfast** page of **Culinary Canvas**, you can explore a variety of breakfast recipes. Each recipe includes detailed instructions and ingredients. You can also add your favorite recipes to your **Favorites** list for easy access later!
 ![image](https://github.com/user-attachments/assets/d92988e6-cdb1-42de-8c70-c97bf93daac5)
-![image](https://github.com/user-attachments/assets/92000d00-60c5-445c-8a09-626f7f9e7bf3)
+ ![image](https://github.com/user-attachments/assets/92000d00-60c5-445c-8a09-626f7f9e7bf3)
 
 
 
