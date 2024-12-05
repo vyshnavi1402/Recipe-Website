@@ -26,6 +26,13 @@ Satisfy your cravings with a variety of tasty and easy-to-make snacks. From ligh
 
 Indulge your sweet tooth with an array of delicious dessert recipes. Whether you’re craving something light and fruity or rich and decadent, you’ll find the perfect treat to satisfy your cravings. Don’t forget to add your favorites to the **Favorites** list for those times when you want to indulge again!
 ![image](https://github.com/user-attachments/assets/03ff382d-1de1-45d2-aad2-ebccb74bba90)
+## Login Page
+Access your **Culinary Canvas** account to explore, save, and share your favorite recipes. Log in to easily manage your personal recipe collection and get a personalized experience on the site.
+![image](https://github.com/user-attachments/assets/878017f1-b664-4407-9eb3-271636d8e81b)
+After logging in, you can access your **My Recipes** tab, save and manage your **Favorites**, and enjoy a tailored collection of recipes just for you. It's your personal culinary space to explore, create, and share!
+![image](https://github.com/user-attachments/assets/b33f490b-a138-428f-8d9e-a133dacde84f)
+
+
 
 
 
