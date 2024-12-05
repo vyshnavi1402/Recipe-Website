@@ -31,6 +31,18 @@ Access your **Culinary Canvas** account to explore, save, and share your favorit
 ![image](https://github.com/user-attachments/assets/878017f1-b664-4407-9eb3-271636d8e81b)
 After logging in, you can access your **My Recipes** tab, save and manage your **Favorites**, and enjoy a tailored collection of recipes just for you. It's your personal culinary space to explore, create, and share!
 ![image](https://github.com/user-attachments/assets/b33f490b-a138-428f-8d9e-a133dacde84f)
+Here's a more innovative and engaging description for your GitHub README:
+
+### My Recipes Page
+The **My Recipes** page is your personal recipe vault! After logging in, you can seamlessly add  view, and manage your own culinary creations by filling in the recipe name, ingredients, and instructions. Once added, you can easily browse through your collection of recipes anytime, making it simple to relive your best cooking moments or try out new ideas you've stored. Stay organized and inspired with all your recipes in one place!
+![image](https://github.com/user-attachments/assets/5d85c77b-210a-4fb6-bd24-5f642159389f)
+
+
+
+### Favorites Page  
+The **Favorites** page is your recipe treasure chest! Save all the recipes that spark your culinary creativity, so you can easily revisit them whenever you’re in the mood to cook your top picks. Keep your go-to recipes just a click away!
+![image](https://github.com/user-attachments/assets/a290896a-21b0-4ba5-9a62-043c3155296f)
+
 
 
 
