@@ -39,25 +39,25 @@ if (isset($_GET['id'])) {
 // Handle form submission for updating the recipe
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $recipe_name = $_POST['name'];
+    $ingredients = $_POST['ingredients']; // Capture ingredients
     $instructions = $_POST['instructions'];
 
-    // If a new image is uploaded
-    if ($_FILES['image']['name']) {
-        $image = $_FILES['image'];
-        $image_path = 'uploads/' . time() . '_' . basename($image['name']);
-        move_uploaded_file($image['tmp_name'], $image_path);
+    // Update recipe in the database
+    $query = "UPDATE recipes SET name = ?, ingredients = ?, instructions = ? WHERE id = ? AND member_id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ssssi", $recipe_name, $ingredients, $instructions, $recipe_id, $member_id);
+    $stmt->execute();
+
+    // Check if the update was successful
+    if ($stmt->affected_rows > 0) {
+        // Redirect to my_recipes.php after a successful update
+        header("Location: my_recipes.php?update=success");
+        exit();
     } else {
-        $image_path = $recipe['image']; // Use the existing image if no new one is uploaded
+        $update_error = "Error updating recipe. Please try again.";
     }
 
-    // Update recipe in the database
-    $query = "UPDATE recipes SET name = ?, instructions = ?, image = ? WHERE id = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("sssi", $recipe_name, $instructions, $image_path, $recipe_id);
-    $stmt->execute();
     $stmt->close();
-
-    $update_success = true;  // Set a flag to indicate successful update
 }
 ?>
 
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f4f4f9;
+            background-color: #f4f4f9;
             margin: 0;
             padding: 0;
         }
@@ -87,6 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         h2 {
             text-align: center;
             color: #333;
+            margin-bottom: 20px;
         }
         form {
             display: grid;
@@ -96,9 +97,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             font-size: 16px;
             color: #555;
         }
-        input[type="text"], textarea, input[type="file"] {
+        input[type="text"], textarea {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             border-radius: 5px;
             border: 1px solid #ccc;
             font-size: 14px;
@@ -106,9 +107,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         textarea {
             height: 150px;
+            resize: none;
         }
         button {
-            padding: 12px;
+            padding: 14px;
             background-color: #4CAF50;
             color: white;
             font-size: 16px;
@@ -123,6 +125,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         .success-message {
             text-align: center;
             color: green;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .error-message {
+            text-align: center;
+            color: red;
             font-size: 16px;
             margin-top: 20px;
         }
@@ -146,28 +154,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="container">
         <h2>Edit Recipe</h2>
         
-        <?php if (isset($update_success) && $update_success): ?>
+        <?php if (isset($update_error)): ?>
+            <div class="error-message">
+                <?php echo $update_error; ?>
+            </div>
+        <?php endif; ?>
+
+        <form method="POST">
+            <label for="name">Recipe Name:</label>
+            <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($recipe['name']); ?>" required>
+
+            <label for="ingredients">Ingredients:</label>
+            <textarea id="ingredients" name="ingredients" required><?php echo htmlspecialchars($recipe['ingredients']); ?></textarea>
+
+            <label for="instructions">Instructions:</label>
+            <textarea id="instructions" name="instructions" required><?php echo htmlspecialchars($recipe['instructions']); ?></textarea>
+
+            <button type="submit">Update Recipe</button>
+        </form>
+
+        <?php if (isset($update_success)): ?>
             <div class="success-message">
                 Recipe updated successfully!
             </div>
             <div class="back-button">
-                <a href="my_recipes.php">Back</a>
+                <a href="my_recipes.php">Back to My Recipes</a>
             </div>
-        <?php else: ?>
-            <form method="POST" enctype="multipart/form-data">
-                <label for="name">Recipe Name:</label>
-                <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($recipe['name']); ?>" required>
-
-                <label for="ingredients">Ingredients:</label>
-<textarea id="ingredients" name="ingredients" required><?php echo htmlspecialchars($recipe['ingredients']); ?></textarea>
-
-<label for="instructions">Instructions:</label>
-<textarea id="instructions" name="instructions" required><?php echo htmlspecialchars($recipe['instructions']); ?></textarea>
-                <label for="image">Recipe Image:</label>
-                <input type="file" id="image" name="image" accept="image/*">
-
-                <button type="submit">Update Recipe</button>
-            </form>
         <?php endif; ?>
     </div>
 </body>
